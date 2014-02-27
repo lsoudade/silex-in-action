@@ -1,0 +1,24 @@
+{
+    "autoload": {
+        "psr-0": {
+            "Project": [
+                "src"
+            ]
+        }
+    },
+    "require": {
+        "doctrine/dbal": "2.3.4",
+        "php": ">=5.3.3",
+        "silex/silex": "v1.1.0",
+        "symfony/security": "~2.1",
+        "symfony/twig-bridge": "~2.1",
+        "symfony/validator": "~2.1",
+        "symfony/form": "~2.1",
+        "symfony/translation": "~2.1",
+        "symfony/yaml": "~2.1",
+        "symfony/config": "~2.1",
+        "symfony/locale": "~2.1",
+        "twig/twig": "v1.13.2",
+        "symfony/console": "~2.1"
+    }
+}

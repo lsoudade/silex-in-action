@@ -1,0 +1,8 @@
+cache
+vendor
+www/css/
+www/js/*.min.js
+log
+.vagrant
+composer.phar
+nbproject
