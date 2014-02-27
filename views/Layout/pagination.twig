@@ -1,0 +1,40 @@
+{# Get current route and parameters #}
+{% set route = paginator.getRoute %}
+{% if route is null %}
+    {% set route = app.request.attributes.get('_route') %}
+{% endif %}
+
+{% set query = paginator.getParameters %}
+{% if query is null %}
+    {% set query = app.request.attributes.get('_route_params') %}
+{% endif %}
+
+{% if paginator.displayable %}
+    <div class="pagination-container">
+        <ul class="pagination pagination-sm">
+            {% if paginator.isFirstPage %}
+                <li class="disabled"><span>&laquo;</span></li>
+                <li class="disabled"><span>&lsaquo;</span></li>
+            {% else %}
+                <li><a href="{{ path(route, query|merge({'Page': null})) }}">&laquo;</a></li>
+                <li><a href="{{ path(route, query|merge({'Page': paginator.getPreviousPage})) }}">&lsaquo;</a></li>
+            {% endif %}
+            
+            {% for page in paginator.getPages %}
+                {% if page == paginator.getCurrentPage %}
+                    <li class="active"><span class="selected">{{ page }}</span></li>
+                {% else %}
+                    <li><a href="{{ path(route, query|merge({'Page': page})) }}">{{ page }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            {% if paginator.isLastPage %}
+                <li class="disabled"><span>&rsaquo;</span></li>
+                <li class="disabled"><span>&raquo;</span></li>
+            {% else %}
+                <li><a href="{{ path(route, query|merge({'Page': paginator.getNextPage})) }}">&rsaquo;</a></li>
+                <li><a href="{{ path(route, query|merge({'Page': paginator.getPageNumber})) }}">&raquo;</a></li>
+            {% endif %}
+        </ul>
+    </div>
+{% endif %}

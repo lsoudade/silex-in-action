@@ -1,6 +1,13 @@
 <?php
 
 /**
+ * Declares controllers as shared services
+ */
+$app['controller.default'] = $app->share(function ($app) {
+    return new \Controller\Frontend($app);
+});
+
+/**
  * Declares managers as shared services
  */
 $app['manager.user'] = $app->share(function ($app) {
