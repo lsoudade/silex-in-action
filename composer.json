@@ -8,6 +8,7 @@
     },
     "require": {
         "doctrine/dbal": "2.3.4",
+        "monolog/monolog": "1.6.0",
         "php": ">=5.3.3",
         "silex/silex": "v1.1.0",
         "symfony/security": "~2.1",

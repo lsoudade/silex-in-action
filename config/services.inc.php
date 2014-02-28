@@ -3,8 +3,8 @@
 /**
  * Declares controllers as shared services
  */
-$app['controller.default'] = $app->share(function ($app) {
-    return new \Controller\Frontend($app);
+$app['controller.frontend'] = $app->share(function () use ($app) {
+    return new \Project\Controller\Frontend($app);
 });
 
 /**
