@@ -1,4 +1,4 @@
 vendor
-log/*
+log/app.log
 composer.phar
 nbproject
