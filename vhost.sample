@@ -1,0 +1,10 @@
+<VirtualHost *:80>
+    ServerName silex-in-action.local
+    DocumentRoot /home/Workspace/silex-in-action/www
+
+    <Directory "/home/Workspace/silex-in-action/www">
+        Options FollowSymLinks
+	AllowOverride All
+	Require all granted
+    </Directory>
+</VirtualHost>
