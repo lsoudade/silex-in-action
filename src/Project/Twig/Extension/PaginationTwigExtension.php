@@ -24,7 +24,7 @@ class PaginationTwigExtension extends \Twig_Extension
         );
     }
     
-    public function paginate(\Mediastay\Lib\Paginator $pagination, $template = 'Layout/pagination.twig')
+    public function paginate(\Project\Lib\Paginator $pagination, $template = 'Layout/pagination.twig')
     {
         return $this->environment->render($template, array('paginator' => $pagination));
     }
