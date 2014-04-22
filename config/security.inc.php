@@ -6,7 +6,7 @@ $app['security.firewalls'] = array(
     'website' => array(
         'anonymous' => true,
         'pattern' => '^/',
-        'form' => array('login_path' => '/login', 'check_path' => '/login_check'),
+        'form' => array('login_path' => '/signin', 'check_path' => '/login_check'),
         'users' => $app->share(
             function () use ($app) {
                 return new \Project\Provider\UserProvider($app);

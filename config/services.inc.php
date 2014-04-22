@@ -35,3 +35,14 @@ $app['form.lostPassword'] = function ($app) {
 $app['form.newPassword'] = function ($app) {
     return new \Project\Form\NewPasswordForm($app);
 };
+
+/**
+ * Other services
+ */
+$app['flashbag'] = $app->share(function ($app) {
+    return new \Project\Session\FlashBag($app);
+});
+
+$app['password'] = $app->share(function ($app) {
+    return new \Project\Security\Password($app);
+});

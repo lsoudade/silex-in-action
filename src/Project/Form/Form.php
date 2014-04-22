@@ -26,10 +26,24 @@ abstract class Form
      */
     public function uniqueEmail($email, ExecutionContextInterface $context)
     {
-//        Your code here...
-//        
-//        if ( ... ) {
-//            $context->addViolation('email exists');
-//        }
+        if ( $this->app['manager.user']->emailExists($email) ) {
+            $context->addViolation('Email already in database');
+        }
+    }
+    
+    /**
+     * Callback function testing username existence in member table
+     * To use as a form constraint
+     * 
+     * Must be public to avoid an exception
+     * 
+     * @param string $email Email address to test in database
+     * @param \Symfony\Component\Validator\ExecutionContextInterface $context
+     */
+    public function uniqueUsername($username, ExecutionContextInterface $context)
+    {
+        if ( $this->app['manager.user']->usernameExists($username) ) {
+            $context->addViolation('Username already in database');
+        }
     }
 }

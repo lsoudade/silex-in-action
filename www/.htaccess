@@ -1,0 +1,16 @@
+# Attention, ne pas remplacer ce code par
+# FallbackResource /index.php
+# car Silex ne gere par correctement
+# la route "/"
+# cf: https://github.com/fabpot/Silex/issues/703
+# cf: http://silex.sensiolabs.org/doc/web_servers.html
+
+# Le serveur doit suivre les liens symboliques :
+Options +FollowSymlinks
+RewriteEngine on
+
+Options -MultiViews
+
+#RewriteBase /path/to/app
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]
