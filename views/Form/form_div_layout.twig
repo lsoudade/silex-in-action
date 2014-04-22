@@ -1,0 +1,42 @@
+{% block form_row %}
+    <dl class="form_row">
+        <dt>{{ form_label(form) }}</dt>
+        <dd>
+            {{ form_errors(form) }}
+            {{ form_widget(form) }}
+        </dd>
+    </dl>
+{% endblock form_row %}
+
+{% block form_widget_compound %}
+{% spaceless %}
+    <div {{ block('widget_container_attributes') }}>
+        {% if form.parent is empty %}
+            {{ form_errors(form) }}
+        {% endif %}
+        {{ block('form_widgets') }}
+        {{ form_rest(form) }}
+    </div>
+{% endspaceless %}
+{% endblock form_widget_compound %}
+
+{% block form_widgets %}
+{% spaceless %}
+    {% for child in form %}
+        {{ form_errors(child) }}
+        {{ form_widget(child) }}
+    {% endfor %}
+{% endspaceless %}
+{% endblock form_widgets %}
+
+{% block form_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+    <ul class="form-errors list-unstyled">
+        {% for error in errors %}
+            <li>{{ error.message|trans }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}

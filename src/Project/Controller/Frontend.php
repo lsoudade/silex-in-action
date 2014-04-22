@@ -11,7 +11,25 @@ class Frontend extends Controller
     
     public function signup()
     {
-        return $this->render('Frontend/signup');
+        // Authenticated member shall not access this form
+        if ( $this->app['manager.user']->isAuthenticated() ) {
+            return $this->app->redirect($this->app['url_generator']->generate('home'));
+        }
+        
+        // Create subscription form
+        $form = $this->app['form.signup']->build();
+        
+        $form->handleRequest($this->request);
+
+        if ($form->isValid()) {
+                                
+            $this->app['manager.user']->create($form->getData());
+            
+            return $this->app->redirect($this->app['url_generator']->generate('home'));
+        }
+        
+        // Display the form
+        return $this->render('Frontend/signup', array('form' => $form->createView()));
     }
     
     public function signin()

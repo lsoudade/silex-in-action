@@ -5,7 +5,7 @@ namespace Project\Form;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
-class RegistrationForm extends Form
+class SignupForm extends Form
 {
     /**
      * Returns a form ready for use
@@ -20,21 +20,21 @@ class RegistrationForm extends Form
         $builder
         ->add('username', 'text', array(
             'required'    => true,
-            'label'       => 'form.registration.username',
-            'attr'        => array('placeholder' => 'form.registration.username', 'class' => 'form-control'),
+            'label'       => 'form.signup.username',
+            'attr'        => array('placeholder' => 'form.signup.username', 'class' => 'form-control'),
             'constraints' => array(
                 new Assert\NotBlank(),
                 new Assert\Length(array(
                     'min'        => 3,
-                    'minMessage' => 'form.username.min'
+                    'minMessage' => 'form.error.username.min'
                 )),
                 new Assert\Callback(array(array($this, 'uniqueUsername')))
             )
         ))
         ->add('email', 'email', array(
             'required'    => true,
-            'label'       => 'form.registration.email',
-            'attr'        => array('placeholder' => 'form.registration.email', 'class' => 'form-control'),
+            'label'       => 'form.signup.email',
+            'attr'        => array('placeholder' => 'form.signup.email', 'class' => 'form-control'),
             'constraints' => array(
                 new Assert\NotBlank(),
                 new Assert\Email(),
@@ -44,24 +44,14 @@ class RegistrationForm extends Form
         ->add('password', 'repeated', array(
             'type'            => 'password',
             'required'        => true,
-            'first_options'   => array('attr' => array('placeholder' => 'form.registration.password', 'class' => 'form-control')),
-            'second_options'  => array('attr' => array('placeholder' => 'form.registration.password_confirmation', 'class' => 'form-control')),
-            'invalid_message' => 'form.passwords_not_match',
+            'first_options'   => array('attr' => array('placeholder' => 'form.signup.password', 'class' => 'form-control')),
+            'second_options'  => array('attr' => array('placeholder' => 'form.signup.password_confirmation', 'class' => 'form-control')),
+            'invalid_message' => 'form.error.passwords_not_match',
             'constraints'     => array(
                 new Assert\NotBlank(),
                 new Assert\Length(array(
                     'min'        => 3,
                     'minMessage' => 'Minimum of 3 characters'
-                ))
-            )
-        ))
-        ->add('rules', 'checkbox', array(
-            'required'    => true,
-            'label'       => 'form.registration.rules',
-            'attr'        => array('class' => ''),
-            'constraints' => array(
-                new Assert\True(array(
-                    'message' => 'form.registration.error.rules'
                 ))
             )
         ));

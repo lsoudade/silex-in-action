@@ -24,8 +24,8 @@ $app['constant.parser'] = $app->share(function () {
 /**
  * Declares forms as services
  */
-$app['form.subscription'] = function ($app) {
-    return new \Project\Form\SubscriptionForm($app);
+$app['form.signup'] = function ($app) {
+    return new \Project\Form\SignupForm($app);
 };
 
 $app['form.lostPassword'] = function ($app) {
