@@ -1,5 +1,6 @@
 <?php
 
+require __DIR__ . '/../config/parameters.inc.php';
 require __DIR__ . '/../config/providers.inc.php';
 require __DIR__ . '/../config/services.inc.php';
 require __DIR__ . '/../config/persistence.inc.php';

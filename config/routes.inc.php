@@ -4,9 +4,16 @@
  * General routing
  */
 $app->get('/', 'controller.frontend:homepage')->bind('homepage');
-$app->match('/signup', 'controller.frontend:signup')->bind('signup')->method('GET|POST');
-$app->get('/signin', 'controller.frontend:signin')->bind('signin');
-$app->get('/signout', 'controller.frontend:signout')->bind('signout');
+$app->match('/signup', 'controller.registration:signup')->bind('signup')->method('GET|POST');
+$app->get('/signin', 'controller.authentication:signin')->bind('signin');
+$app->get('/signout', 'controller.authentication:signout')->bind('signout');
+
+/*
+ * Lost password
+ */
+$app->match('/lost-password', 'controller.authentication:lostPassword')->bind('lost_password')->method('GET|POST');
+$app->match('/lost-password/reinitialize/{token}', 'controller.authentication:lostPasswordReinitialize')->bind('lost_password_reinitialize')->method('GET|POST');
+
 
 /*
  * Custom routing

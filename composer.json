@@ -8,9 +8,8 @@
     },
     "require": {
         "doctrine/dbal": "2.3.4",
-        "monolog/monolog": "1.6.0",
         "php": ">=5.3.3",
-        "silex/silex": "v1.1.0",
+        "silex/silex": "~1.2",
         "symfony/security": "~2.1",
         "symfony/twig-bridge": "~2.1",
         "symfony/validator": "~2.1",
@@ -20,6 +19,7 @@
         "symfony/config": "~2.1",
         "symfony/locale": "~2.1",
         "twig/twig": "v1.13.2",
-        "symfony/console": "~2.1"
+        "symfony/console": "~2.1",
+        "swiftmailer/swiftmailer": "v5.1.0"
     }
 }

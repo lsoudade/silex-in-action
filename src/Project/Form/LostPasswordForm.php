@@ -41,7 +41,7 @@ class LostPasswordForm extends AbstractForm
      */
     public function existingEmail($email, ExecutionContextInterface $context)
     {
-        if ( !$this->app['manager.member']->isEmailAlreadyInDatabase($email) ) {
+        if ( !$this->app['manager.user']->isEmailAlreadyInDatabase($email) ) {
             $context->addViolation('authentication.lostPassword.form.email_not_exists');
         }
     }
