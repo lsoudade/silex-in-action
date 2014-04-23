@@ -31,8 +31,12 @@
               <div class="navbar-collapse collapse">
                   <ul class="nav navbar-nav">
                       <li class="active"><a href="{{ path('homepage') }}">Home</a></li>
-                      <li><a href="{{ path('signup') }}">Signup</a></li>
-                      <li><a href="{{ path('signin') }}">Signin</a></li>
+                      {% if not is_granted('ROLE_USER') %}
+                          <li><a href="{{ path('signup') }}">Sign up</a></li>
+                          <li><a href="{{ path('signin') }}">Sign in</a></li>
+                      {% else %}
+                          <li><a href="{{ path('signout') }}">Sign out</a></li>
+                      {% endif %}
                   </ul>
               </div><!--/.nav-collapse -->
             </div>

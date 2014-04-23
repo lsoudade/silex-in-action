@@ -82,7 +82,7 @@ class User extends Manager
         $firewalls = array_keys($this->app['security.firewalls']);
         $token = new \Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken(
             $userRec['email'], $userRec['password'], $firewalls[0], array('ROLE_USER'));
-        $user = new SecurityUser($userRec['email'], $userRec['password'], $userRec['id'], $userRec['username'], array('ROLE_USER'));
+        $user = new SecurityUser($userRec['email'], $userRec['password'], $userRec['id'], array('ROLE_USER'));
         $user->setExtra($userRec);
         $token->setUser($user);
         $this->app['security']->setToken($token);

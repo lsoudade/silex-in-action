@@ -3,7 +3,7 @@ $app['db.options'] = array (
     'driver' => 'pdo_mysql',
     'host' => 'localhost',
     'user' => 'root',
-    'password' => '',
+    'password' => 'admin',
     'dbname' => 'project',
     'charset' => 'utf8',
 );

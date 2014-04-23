@@ -13,7 +13,7 @@ class Frontend extends Controller
     {
         // Authenticated member shall not access this form
         if ( $this->app['manager.user']->isAuthenticated() ) {
-            return $this->app->redirect($this->app['url_generator']->generate('home'));
+            return $this->app->redirect($this->app['url_generator']->generate('homepage'));
         }
         
         // Create subscription form
@@ -23,9 +23,11 @@ class Frontend extends Controller
 
         if ($form->isValid()) {
                                 
-            $this->app['manager.user']->create($form->getData());
+            $user = $this->app['manager.user']->create($form->getData());
             
-            return $this->app->redirect($this->app['url_generator']->generate('home'));
+            $this->app['manager.user']->authenticate($user);
+            
+            return $this->app->redirect($this->app['url_generator']->generate('homepage'));
         }
         
         // Display the form
@@ -35,7 +37,7 @@ class Frontend extends Controller
     public function signin()
     {
         if ( $this->app['manager.user']->isAuthenticated() ) {
-            return $this->app->redirect($this->app['url_generator']->generate('home'));
+            return $this->app->redirect($this->app['url_generator']->generate('homepage'));
         }
         
         return $this->render('Frontend/signin', array(
