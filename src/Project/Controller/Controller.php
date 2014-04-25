@@ -30,4 +30,29 @@ abstract class Controller
     {
         throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
     }
+    
+    protected function notice($msg)
+    {
+        return $this->app['flashbag']->notice($msg);
+    }
+    
+    protected function info($msg)
+    {
+        return $this->app['flashbag']->info($msg);
+    }
+    
+    protected function warning($msg)
+    {
+        return $this->app['flashbag']->warning($msg);
+    }
+    
+    protected function error($msg)
+    {
+        return $this->app['flashbag']->error($msg);
+    }
+    
+    protected function invisible($msg)
+    {
+        return $this->app['flashbag']->invisible($msg);
+    }   
 }

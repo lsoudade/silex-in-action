@@ -5,7 +5,7 @@ namespace Project\Form;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
-class NewPasswordForm extends AbstractForm
+class NewPasswordForm extends Form
 {
     /**
      * Returns a form ready for use

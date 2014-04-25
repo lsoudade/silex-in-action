@@ -23,7 +23,7 @@ class PasswordToken extends Manager
      */
     function create($email, $expirationDurationInHours) 
     {
-        $user = $this->app['manager.user']->find( 
+        $user = $this->app['manager.user']->findOneBy( 
             'email', $email, array('id') );
         
         return $this->store($this->generate(), $user['id'], $expirationDurationInHours);

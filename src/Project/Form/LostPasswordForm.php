@@ -6,7 +6,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\ExecutionContextInterface;
 
 
-class LostPasswordForm extends AbstractForm
+class LostPasswordForm extends Form
 {
     /**
      * Returns a form ready for use
@@ -41,7 +41,7 @@ class LostPasswordForm extends AbstractForm
      */
     public function existingEmail($email, ExecutionContextInterface $context)
     {
-        if ( !$this->app['manager.user']->isEmailAlreadyInDatabase($email) ) {
+        if ( !$this->app['manager.user']->emailExists($email) ) {
             $context->addViolation('authentication.lostPassword.form.email_not_exists');
         }
     }

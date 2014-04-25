@@ -6,7 +6,7 @@ class User extends Repository
 {
     public function __construct($dbConnector)
     {
-        parent::__construct($dbConnector,'user','id');
+        parent::__construct($dbConnector,'user', 'id');
     }
 
     public function emailExists($email)

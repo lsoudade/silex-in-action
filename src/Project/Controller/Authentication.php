@@ -44,7 +44,7 @@ class Authentication extends Controller
             // Send the email
             $this->app['mailer']->sendLostPasswordEmail(
                 $data['email'],
-                $this->render('Mail/lostPassword', array('token' => $token)) );
+                $this->render('Mail/' . $this->app['locale'] . '/lostPassword', array('token' => $token)) );
             
             // Success message
             $this->notice('authentication.lostPassword.form.success');
@@ -59,33 +59,27 @@ class Authentication extends Controller
      */
     public function lostPasswordReinitialize()
     {
-        // Retrieve locale if needed
-        if ( $request->getMethod() == 'GET' ) {
-            $locale = $request->get('locale');
-            $app['session']->set('current_locale', $locale);
-        }
-        
         $token = $request->get('token');
         
-        if ( $memberId = $app['manager.passwordToken']->validate($token) ) {
+        if ( $memberId = $this->app['manager.passwordToken']->validate($token) ) {
             
             // Create password form
-            $form = $app['form.newPassword']->build();
+            $form = $this->app['form.newPassword']->build();
 
-            $form->handleRequest($request);
+            $form->handleRequest($this->request);
 
             if ($form->isValid()) {
 
                 // Form is valid so we can update member
-                $app['manager.member']->newPassword($form->getData(), $memberId);
+                $this->app['manager.member']->newPassword($form->getData(), $memberId);
                 
                 // Success message
-                $this->notice($app, 'authentication.newPassword.form.success');
+                $this->notice('authentication.newPassword.form.success');
             }
             
-            return $this->render($app, 'Authentication/lostPasswordReinitializeSuccess', array('form' => $form->createView(), 'token' => $token));
+            return $this->render('Authentication/lostPasswordReinitializeSuccess', array('form' => $form->createView(), 'token' => $token));
         }
         
-        return $this->render($app, 'Authentication/lostPasswordReinitializeError', array('token' => $token));
+        return $this->render('Authentication/lostPasswordReinitializeError', array('token' => $token));
     }
 }
