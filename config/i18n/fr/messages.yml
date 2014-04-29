@@ -1,0 +1,43 @@
+authentication.lost_password.error.text: Une erreur est survenue durant la réinitialisation de votre mot de passe
+authentication.lost_password.success.text: Saisissez votre nouveau mot de passe
+authentication.lost_password.text: Vous avez perdu votre mot de passe ?
+authentication.lost_password.submit: Envoyer
+form.error.email.exists: Cet email est déjà utilisé
+form.error.email_not_found: Cet email n'existe pas
+form.error.passwords_length: Mot de passe trop court
+form.error.passwords_not_match: Mots de passe non identiques
+form.error.rules.unchecked: Vous devez accepter les conditions générales d'utilisation
+form.error.username.exists: Ce nom d'utilisateur existe déjà
+form.error.username.min: Nom d'utilisateur trop court
+form.lost_password.email: Saisissez votre email
+form.lost_password.new_password: Nouveau mot de passe
+form.lost_password.new_password_again: Confirmation du mot de passe
+form.lost_password.success: Vous allez recevoir un email vous permettant de réinitialiser votre mot de passe
+form.new_password.success: Votre mot de passe a été changé avec succès
+form.signin.email: Email
+form.signin.lost_password: Mot de passe oublié
+form.signin.password: Mot de passe
+form.signin.submit: Se connecter
+form.signup.email: Votre email
+form.signup.password: Votre mot de passe
+form.signup.password_confirmation: Confirmation du mot de passe
+form.signup.submit: S'inscrire
+form.signup.success: Votre compte a été créé avec succès
+form.signup.rules: J'accepte les <a href="/terms-of-service" target="blank">conditions générales d'utilisation</a>
+form.signup.username: Nom d'utilisateur
+mail.signup.object: Bienvenue
+mail.lost_password.object: Réinitialisation de votre mot de passe
+menu.homepage: Accueil
+menu.signin: Connexion
+menu.signout: Déconnexion
+menu.signup: Inscription
+
+"less than %seconds seconds ago": il y a moins de %seconds secondes
+"half a minute ago": il y a 30 secondes
+"less than a minute ago": il y a moins d'une minute
+"1 minute ago": il y a une minute
+"%minutes minutes ago": il y a "%minutes minutes
+"about 1 hour ago": il y a environ une heure
+"about %hours hours ago": il y a environ %hours heures
+"1 day ago": il y a un jour
+"%days days ago": il y a %days jours

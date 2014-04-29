@@ -19,8 +19,8 @@ class LostPasswordForm extends Form
         return $this->app['form.factory']->createBuilder('form', $data)
             ->add('email', 'email', array(
                 'required'    => true,
-                'label'       => 'form.subscription.email',
-                'attr'        => array('placeholder' => 'form.subscription.email', 'class' => 'form-control'),
+                'label'       => 'form.lost_password.email',
+                'attr'        => array('class' => 'form-control'),
                 'constraints' => array(
                     new Assert\NotBlank(),
                     new Assert\Email(),
@@ -42,7 +42,7 @@ class LostPasswordForm extends Form
     public function existingEmail($email, ExecutionContextInterface $context)
     {
         if ( !$this->app['manager.user']->emailExists($email) ) {
-            $context->addViolation('authentication.lostPassword.form.email_not_exists');
+            $context->addViolation('form.error.email_not_found');
         }
     }
 }

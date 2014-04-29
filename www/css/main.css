@@ -1,3 +1,23 @@
 .main-container {
     margin-top:70px;
 }
+
+.alert {
+    padding:8px !important;
+}
+
+.close {
+    line-height:0.8 !important;
+}
+
+ul.form-errors,
+ul.form-errors li {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul.form-errors li {
+  color: red;
+  font-size: 13.5px;
+  margin-bottom: 10px;
+}

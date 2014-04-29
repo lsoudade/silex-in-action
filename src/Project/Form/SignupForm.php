@@ -21,7 +21,7 @@ class SignupForm extends Form
         ->add('username', 'text', array(
             'required'    => true,
             'label'       => 'form.signup.username',
-            'attr'        => array('placeholder' => 'form.signup.username', 'class' => 'form-control'),
+            'attr'        => array('class' => 'form-control'),
             'constraints' => array(
                 new Assert\NotBlank(),
                 new Assert\Length(array(
@@ -34,7 +34,7 @@ class SignupForm extends Form
         ->add('email', 'email', array(
             'required'    => true,
             'label'       => 'form.signup.email',
-            'attr'        => array('placeholder' => 'form.signup.email', 'class' => 'form-control'),
+            'attr'        => array('class' => 'form-control'),
             'constraints' => array(
                 new Assert\NotBlank(),
                 new Assert\Email(),
@@ -44,15 +44,22 @@ class SignupForm extends Form
         ->add('password', 'repeated', array(
             'type'            => 'password',
             'required'        => true,
-            'first_options'   => array('attr' => array('placeholder' => 'form.signup.password', 'class' => 'form-control')),
-            'second_options'  => array('attr' => array('placeholder' => 'form.signup.password_confirmation', 'class' => 'form-control')),
+            'first_options'   => array('label' => 'form.signup.password', 'attr' => array('class' => 'form-control')),
+            'second_options'  => array('label' => 'form.signup.password_confirmation', 'attr' => array('class' => 'form-control')),
             'invalid_message' => 'form.error.passwords_not_match',
             'constraints'     => array(
                 new Assert\NotBlank(),
                 new Assert\Length(array(
                     'min'        => 3,
-                    'minMessage' => 'Minimum of 3 characters'
+                    'minMessage' => 'form.error.passwords_length'
                 ))
+            )
+        ))
+        ->add('rules', 'checkbox', array(
+            'required'    => true,
+            'attr'        => array('class' => ''),
+            'constraints' => array(
+                new Assert\True(['message' => 'form.error.rules.unchecked'])
             )
         ));
         

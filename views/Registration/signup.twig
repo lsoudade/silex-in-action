@@ -5,21 +5,23 @@
 
     <form action="{{ path('signup') }}" method="post">
 
-        <div class="form-group form-group-email">
-            {{ form_errors(form.username) }}
-            {{ form_widget(form.username) }}
+        <div class="form-group form-group-username">
+            {{ form_row(form.username) }}
         </div>
         <div class="form-group form-group-email">
-            {{ form_errors(form.email) }}
-            {{ form_widget(form.email) }}
+            {{ form_row(form.email) }}
         </div>
-        <div class="form-group form-group-pass">
-            {{ form_errors(form.password) }}
-            {{ form_widget(form.password) }}
+        <div class="form-group form-group-password">
+            {{ form_row(form.password) }}
+        </div>
+        <div class="form-group form-group-rules">
+            {{ form_errors(form.rules) }}
+            {{ form_widget(form.rules) }}
+            <label>{{ 'form.signup.rules'|trans|raw }}</label>
         </div>
 
         {{ form_rest(form) }}
 
-        <button type="submit" class="btn btn-primary" id="subscriptionForm-submit">{{ 'signup'|trans }}</button>
+        <button type="submit" class="btn btn-primary">{{ 'form.signup.submit'|trans }}</button>
     </form>
 {% endblock %} 

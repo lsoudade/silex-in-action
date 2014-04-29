@@ -19,18 +19,18 @@ class Mailer
     }
     
     /**
-     * Sends an email to the new member to confirm his subscription
+     * Sends an email to the new member to confirm his registration
      * 
      * @param array $user Member entity as an array
      * @param string $template Twig template content used for this email
      */
-    public function sendSubscriptionConfirmationEmail(array $user, $template)
+    public function sendRegistrationEmail($email, $template)
     {
         // Create
-        $message = \Swift_Message::newInstance($this->app['translator']->trans('mail.subscriptionConfirmation.object'))
+        $message = \Swift_Message::newInstance($this->app['translator']->trans('mail.signup.object'))
           ->setFrom(array($this->app['parameters']['mailer']['from']))
-          ->setTo(array($user['email']))
-          ->setBody($template);
+          ->setTo(array($email))
+          ->setBody($template, 'text/html');
 
         // Send
         return $this->mailer->send($message);
@@ -45,10 +45,10 @@ class Mailer
     public function sendLostPasswordEmail($email, $template)
     {
         // Create
-        $message = \Swift_Message::newInstance($this->app['translator']->trans('mail.lostPassword.object'))
+        $message = \Swift_Message::newInstance($this->app['translator']->trans('mail.lost_password.object'))
           ->setFrom(array($this->app['parameters']['mailer']['from']))
           ->setTo(array($email))
-          ->setBody($template);
+          ->setBody($template, 'text/html');
 
         // Send
         return $this->mailer->send($message);

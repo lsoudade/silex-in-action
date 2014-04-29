@@ -27,6 +27,9 @@ class User extends Manager
     public function create(array $data) 
     {
         // Prepare datas
+        unset($data['rules']); // No db persistence
+        $data['email'] = strtolower($data['email']);
+        $data['password'] = $this->app['password']->encode($data['password']);
         $data['enabled'] = 1;
         
         // Dates
@@ -69,6 +72,8 @@ class User extends Manager
      */
     public function newPassword($data, $id) 
     {
+        $data['password'] = $this->app['password']->encode($data['password']);
+        
         return $this->update($data, $id);
     }
     

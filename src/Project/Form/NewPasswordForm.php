@@ -19,14 +19,14 @@ class NewPasswordForm extends Form
         $builder->add('password', 'repeated', array(
             'type'            => 'password',
             'required'        => true,
-            'first_options'   => array('label' => 'account.form.password.label.new', 'attr' => array('class' => 'form-control', 'placeholder' => 'account.form.password.label.new', 'autocomplete' => 'off')),
-            'second_options'  => array('label' => 'account.form.password.label.newAgain', 'attr' => array('class' => 'form-control', 'placeholder' => 'account.form.password.label.newAgain', 'autocomplete' => 'off')),
-            'invalid_message' => 'form.subscription.passwords_not_match',
+            'first_options'   => array('label' => 'form.lost_password.new_password', 'attr' => array('class' => 'form-control', 'autocomplete' => 'off')),
+            'second_options'  => array('label' => 'form.lost_password.new_password_again', 'attr' => array('class' => 'form-control', 'autocomplete' => 'off')),
+            'invalid_message' => 'form.error.passwords_not_match',
             'constraints'     => array(
                 new Assert\NotBlank(),
                 new Assert\Length(array(
                     'min'        => 3,
-                    'minMessage' => 'form.subscription.passwords_length' // @todo give min length number dynamically to translator
+                    'minMessage' => 'form.error.passwords_length' // @todo give min length number dynamically to translator
                 ))
             )
         ));

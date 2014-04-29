@@ -47,7 +47,7 @@ class Authentication extends Controller
                 $this->render('Mail/' . $this->app['locale'] . '/lostPassword', array('token' => $token)) );
             
             // Success message
-            $this->notice('authentication.lostPassword.form.success');
+            $this->notice('form.lost_password.success');
         }
         
         // Display the form
@@ -59,7 +59,7 @@ class Authentication extends Controller
      */
     public function lostPasswordReinitialize()
     {
-        $token = $request->get('token');
+        $token = $this->request->get('token');
         
         if ( $memberId = $this->app['manager.passwordToken']->validate($token) ) {
             
@@ -71,10 +71,10 @@ class Authentication extends Controller
             if ($form->isValid()) {
 
                 // Form is valid so we can update member
-                $this->app['manager.member']->newPassword($form->getData(), $memberId);
+                $this->app['manager.user']->newPassword($form->getData(), $memberId);
                 
                 // Success message
-                $this->notice('authentication.newPassword.form.success');
+                $this->notice('form.new_password.success');
             }
             
             return $this->render('Authentication/lostPasswordReinitializeSuccess', array('form' => $form->createView(), 'token' => $token));

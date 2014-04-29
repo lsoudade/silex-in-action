@@ -16,4 +16,27 @@ abstract class Manager
     {
         return $this->repository->findOneBy($field, $value, $fieldsToRetrieve);
     }
+    
+    /**
+     * Processes to update
+     * 
+     * @param array $data An associative array containing row data to update.
+     * @param int $id Row id to update, can be null if id is in data array
+     * @return boolean 
+     */
+    public function update(array $data, $id = null) 
+    {
+        if ( is_null($id) )
+            $id = $data['id'];
+        
+        return $this->repository->updateWithPrimaryKey($data, $id);
+    }
+    
+    /**
+     * Returns given manager repository
+     */
+    public function getRepository() 
+    {
+        return $this->repository;
+    }
 }

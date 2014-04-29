@@ -27,7 +27,7 @@ abstract class Form
     public function uniqueEmail($email, ExecutionContextInterface $context)
     {
         if ( $this->app['manager.user']->emailExists($email) ) {
-            $context->addViolation('Email already in database');
+            $context->addViolation('form.error.email.exists');
         }
     }
     
@@ -43,7 +43,7 @@ abstract class Form
     public function uniqueUsername($username, ExecutionContextInterface $context)
     {
         if ( $this->app['manager.user']->usernameExists($username) ) {
-            $context->addViolation('Username already in database');
+            $context->addViolation('form.error.username.exists');
         }
     }
 }

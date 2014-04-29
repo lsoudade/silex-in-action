@@ -4,7 +4,7 @@ namespace Project\Provider;
 
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Project\Security\User;
+use Symfony\Component\Security\Core\User\User;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Silex\Application;
@@ -32,8 +32,8 @@ class UserProvider implements UserProviderInterface
             throw new UsernameNotFoundException('Account not validated.');
         }
         
-        $userApp = new User($user['email'], $user['password'], $user['id'], array('ROLE_USER'));
-        $userApp->setExtra($user);
+        $userApp = new User($user['email'], $user['password'], array('ROLE_USER'));
+//        $userApp->setExtra($user);
         
         return $userApp;
     }
@@ -49,6 +49,6 @@ class UserProvider implements UserProviderInterface
 
     public function supportsClass($class)
     {
-        return $class === '\Project\Security\User';
+        return $class === 'Symfony\Component\Security\Core\User\User';
     }
 }

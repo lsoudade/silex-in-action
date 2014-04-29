@@ -20,7 +20,15 @@ class Registration extends Controller
                                 
             $user = $this->app['manager.user']->create($form->getData());
             
+            // Send the email
+            $this->app['mailer']->sendRegistrationEmail(
+                $user['email'],
+                $this->render('Mail/' . $this->app['locale'] . '/registration') );
+            
             $this->app['manager.user']->authenticate($user);
+            
+            // Success message
+            $this->notice('form.signup.success');
             
             return $this->app->redirect($this->app['url_generator']->generate('homepage'));
         }
