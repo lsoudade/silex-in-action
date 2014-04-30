@@ -16,13 +16,13 @@ class Authentication extends Controller
         ));
     }
     
-    public function signout()
-    {
-        // Log him out from website
-        $this->app['manager.user']->logout();
-        
-        return $this->render('Frontend/homepage');
-    }
+//    public function signout()
+//    {
+//        // Log him out from website
+//        $this->app['manager.user']->logout();
+//        
+//        return $this->render('Frontend/homepage');
+//    }
     
     /**
      * Show lost password Page and send email to reinitialize

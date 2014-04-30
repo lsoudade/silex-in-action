@@ -30,11 +30,11 @@
               <div class="navbar-collapse collapse">
                   <ul class="nav navbar-nav">
                       <li class="active"><a href="{{ path('homepage') }}">{{ 'menu.homepage'|trans }}</a></li>
-                      {% if not is_granted('ROLE_USER') %}
+                      {% if is_granted('ROLE_USER') %}
+                          <li><a href="/signout">{{ 'menu.signout'|trans }}</a></li>
+                      {% else %}
                           <li><a href="{{ path('signup') }}">{{ 'menu.signup'|trans }}</a></li>
                           <li><a href="{{ path('signin') }}">{{ 'menu.signin'|trans }}</a></li>
-                      {% else %}
-                          <li><a href="{{ path('signout') }}">{{ 'menu.signout'|trans }}</a></li>
                       {% endif %}
                   </ul>
               </div><!--/.nav-collapse -->

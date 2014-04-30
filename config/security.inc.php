@@ -12,7 +12,7 @@ $app['security.firewalls'] = array(
                 return new \Project\Provider\UserProvider($app);
             }
         ),
-        'logout' => array('logout_path' => '/logout')
+        'logout' => array('logout_path' => '/signout')
     )
 );
 

@@ -6,7 +6,6 @@
 $app->get('/', 'controller.frontend:homepage')->bind('homepage');
 $app->match('/signup', 'controller.registration:signup')->bind('signup')->method('GET|POST');
 $app->get('/signin', 'controller.authentication:signin')->bind('signin');
-$app->get('/signout', 'controller.authentication:signout')->bind('signout');
 
 /*
  * Lost password
