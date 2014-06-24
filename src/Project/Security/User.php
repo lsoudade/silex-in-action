@@ -11,6 +11,7 @@ class User implements AdvancedUserInterface
 {
     private $username;
     private $password;
+    private $salt;
     private $id;
     private $enabled;
     private $accountNonExpired;
@@ -19,7 +20,7 @@ class User implements AdvancedUserInterface
     private $roles;
     private $extra;
 
-    public function __construct($username, $password, $id, array $roles = array(), $enabled = true, $userNonExpired = true, $credentialsNonExpired = true, $userNonLocked = true)
+    public function __construct($username, $password, $salt, $id, array $roles = array(), $enabled = true, $userNonExpired = true, $credentialsNonExpired = true, $userNonLocked = true)
     {
         if (empty($username)) {
             throw new \InvalidArgumentException('The username cannot be empty.');
@@ -31,6 +32,7 @@ class User implements AdvancedUserInterface
 
         $this->username = $username;
         $this->password = $password;
+        $this->salt = $salt;
         $this->id = $id;
         $this->enabled = $enabled;
         $this->accountNonExpired = $userNonExpired;
@@ -60,7 +62,7 @@ class User implements AdvancedUserInterface
      */
     public function getSalt()
     {
-        return null;
+        return $this->salt;
     }
 
     /**

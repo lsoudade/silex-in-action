@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `salt` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `enabled` tinyint(1) NOT NULL DEFAULT '0',
   `created` datetime NOT NULL,
   `updated` datetime NOT NULL,

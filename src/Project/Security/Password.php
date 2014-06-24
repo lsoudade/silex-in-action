@@ -11,13 +11,18 @@ class Password
         $this->app = $app;
     }
     
-    public function encode($password)
+    public function encode($password, $salt)
     {
-        return $this->app['security.encoder.digest']->encodePassword($password, '');
+        return $this->app['security.encoder.digest']->encodePassword($password, $salt);
     }
     
-    public function compare($password, $encodedPassword)
+    public function compare($password, $encodedPassword, $salt)
     {
-        return $this->app['security.encoder.digest']->encodePassword($password, '') === $encodedPassword;
+        return $this->app['security.encoder.digest']->encodePassword($password, $salt) === $encodedPassword;
+    }
+    
+    public function generateSalt($password)
+    {
+        return md5($password);
     }
 }

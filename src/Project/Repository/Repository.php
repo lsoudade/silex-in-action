@@ -2,6 +2,9 @@
 
 namespace Project\Repository;
 
+/**
+ * @todo Clean this class
+ */
 abstract class Repository
 {
     protected $db;
@@ -138,13 +141,6 @@ abstract class Repository
         return $this->db->executeUpdate($query, array_values($identifier));
     }
 
-    /**
-     * @todo
-     * attention, on voudrait mettre array "conditions" dans la signature de la
-     * methode mais ce n'est pas compatible avec l'interface Storable qui est
-     * utilisee conjointement sur la LF (en mode non PDO) et sur les projets
-     * qui utilisent PDO et/ou doctrine
-     */
     public function update(array $data, $conditions)
     {
         return $this->db->update($this->tableName, $data, $conditions);
@@ -185,15 +181,6 @@ abstract class Repository
         return $row[0];
     }
 
-    /**
-     * Find rows from a table with possibility to add a paginator
-     *
-     * @param array $fieldsToFilter Conditions to retrieve data
-     * @param array $fieldsToRetrieve Fields to retrieve from rows
-     * @param array $fieldsToOrder Fields to order by. array('field' => 'ASC/DESC')
-     * @param mixed $maxRows int or null
-     * @return array of results
-     */
     public function findAll(array $fieldsToFilter = array(), array $fieldsToRetrieve = array(), array $fieldsToOrder = array(), $maxRows = null)
     {
         // Execute query

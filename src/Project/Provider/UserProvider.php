@@ -32,7 +32,7 @@ class UserProvider implements UserProviderInterface
             throw new UsernameNotFoundException('Account not validated.');
         }
         
-        $userApp = new User($user['email'], $user['password'], $user['id'], array('ROLE_USER'));
+        $userApp = new User($user['email'], $user['password'], $user['salt'], $user['id'], array('ROLE_USER'));
         $userApp->setExtra($user);
         
         return $userApp;

@@ -28,9 +28,10 @@ class User extends Manager
     {
         // Prepare datas
         unset($data['rules']); // No db persistence
-        $data['email'] = strtolower($data['email']);
-        $data['password'] = $this->app['password']->encode($data['password']);
-        $data['enabled'] = 1;
+        $data['email']    = strtolower($data['email']);
+        $data['salt']     = $this->app['password']->generateSalt(time());
+        $data['password'] = $this->app['password']->encode($data['password'], $data['salt']);
+        $data['enabled']  = 1;
         
         // Dates
         $now = date('Y-m-d H:i:s');
@@ -72,7 +73,8 @@ class User extends Manager
      */
     public function newPassword($data, $id) 
     {
-        $data['password'] = $this->app['password']->encode($data['password']);
+        $data['salt']     = $this->app['password']->generateSalt(time());
+        $data['password'] = $this->app['password']->encode($data['password'], $data['salt']);
         
         return $this->update($data, $id);
     }
@@ -87,7 +89,7 @@ class User extends Manager
         $firewalls = array_keys($this->app['security.firewalls']);
         $token = new \Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken(
             $userRec['email'], $userRec['password'], $firewalls[0], array('ROLE_USER'));
-        $user = new SecurityUser($userRec['email'], $userRec['password'], $userRec['id'], array('ROLE_USER'));
+        $user = new SecurityUser($userRec['email'], $userRec['password'], $userRec['salt'], $userRec['id'], array('ROLE_USER'));
         $user->setExtra($userRec);
         $token->setUser($user);
         $this->app['security']->setToken($token);
