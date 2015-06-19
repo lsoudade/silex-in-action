@@ -1,7 +1,12 @@
+account.ident: My login informations
+account.ident.email: Update my email
+account.ident.password: Update my password
+account.profile: My profile
 authentication.lost_password.error.text: An error occurred while resetting your password
 authentication.lost_password.success.text: Enter your new password
 authentication.lost_password.text: Have you lost your password?
 authentication.lost_password.submit: Send
+form.account.success: Your account has been updated successfully
 form.error.email.exists: Email already exists
 form.error.email_not_found: Email does not exists
 form.error.passwords_length: Password is too short
@@ -14,6 +19,10 @@ form.lost_password.new_password: New password
 form.lost_password.new_password_again: Password confirmation
 form.lost_password.success: We just sent you an email to reset your password
 form.new_password.success: Your password was changed successfully
+form.email: Email
+form.firstname: Firstname
+form.lastname: Lastname
+form.password: Password
 form.signin.email: Email
 form.signin.lost_password: Lost password
 form.signin.password: Password
@@ -25,9 +34,11 @@ form.signup.rules:
 form.signup.submit: Sign up
 form.signup.success: Your account has been created successfully
 form.signup.rules: I agree with the <a href="/terms-of-service" target="blank">terms and conditions</a>
-form.signup.username: Username
+form.submit: Send
+form.username: Username
 mail.signup.object: Welcome
 mail.lost_password.object: Reset your password
+menu.account: Account
 menu.homepage: Homepage
 menu.signin: Sign in
 menu.signout: Sign out

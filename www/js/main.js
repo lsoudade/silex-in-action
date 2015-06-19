@@ -1,3 +1,5 @@
 $(document).ready(function () {
-   // Your js code here... 
+   $('.alert .close').click(function() {
+       $(this).parent().slideUp();
+   });
 });

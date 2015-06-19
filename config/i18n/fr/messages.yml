@@ -1,7 +1,16 @@
+account.ident: Mes informations de connexion
+account.ident.email: Modifier mon email
+account.ident.password: Modifier mon mot de passe
+account.profile: Mon profil
 authentication.lost_password.error.text: Une erreur est survenue durant la réinitialisation de votre mot de passe
 authentication.lost_password.success.text: Saisissez votre nouveau mot de passe
 authentication.lost_password.text: Vous avez perdu votre mot de passe ?
 authentication.lost_password.submit: Envoyer
+form.account.email: Ma nouvelle adresse email
+form.account.email.old: Mon adresse actuelle
+form.account.password: Mon nouveau mot de passe
+form.account.password.again: Confirmation de mon nouveau mot de passe
+form.account.success: Votre compte a été mis à jour avec succès
 form.error.email.exists: Cet email est déjà utilisé
 form.error.email_not_found: Cet email n'existe pas
 form.error.passwords_length: Mot de passe trop court
@@ -14,6 +23,10 @@ form.lost_password.new_password: Nouveau mot de passe
 form.lost_password.new_password_again: Confirmation du mot de passe
 form.lost_password.success: Vous allez recevoir un email vous permettant de réinitialiser votre mot de passe
 form.new_password.success: Votre mot de passe a été changé avec succès
+form.email: Email
+form.firstname: Prénom
+form.lastname: Nom
+form.password: Mot de passe
 form.signin.email: Email
 form.signin.lost_password: Mot de passe oublié
 form.signin.password: Mot de passe
@@ -24,9 +37,11 @@ form.signup.password_confirmation: Confirmation du mot de passe
 form.signup.submit: S'inscrire
 form.signup.success: Votre compte a été créé avec succès
 form.signup.rules: J'accepte les <a href="/terms-of-service" target="blank">conditions générales d'utilisation</a>
-form.signup.username: Nom d'utilisateur
+form.submit: Valider
+form.username: Nom d'utilisateur
 mail.signup.object: Bienvenue
 mail.lost_password.object: Réinitialisation de votre mot de passe
+menu.account: Mon compte
 menu.homepage: Accueil
 menu.signin: Connexion
 menu.signout: Déconnexion

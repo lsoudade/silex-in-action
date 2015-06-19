@@ -31,6 +31,7 @@
                   <ul class="nav navbar-nav">
                       <li class="active"><a href="{{ path('homepage') }}">{{ 'menu.homepage'|trans }}</a></li>
                       {% if is_granted('ROLE_USER') %}
+                          <li><a href="{{ path('account') }}">{{ 'menu.account'|trans }}</a></li>
                           <li><a href="/signout">{{ 'menu.signout'|trans }}</a></li>
                       {% else %}
                           <li><a href="{{ path('signup') }}">{{ 'menu.signup'|trans }}</a></li>
@@ -50,6 +51,7 @@
         {% block javascript %}
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
             <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+            <script src="/js/main.js"></script>
         {% endblock %}
     </body>
 </html>

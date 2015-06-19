@@ -21,3 +21,7 @@ ul.form-errors li {
   font-size: 13.5px;
   margin-bottom: 10px;
 }
+
+#form_password_first {
+    margin-bottom:20px;
+}

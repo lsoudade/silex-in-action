@@ -20,7 +20,7 @@ class SignupForm extends Form
         $builder
         ->add('username', 'text', array(
             'required'    => true,
-            'label'       => 'form.signup.username',
+            'label'       => 'form.username',
             'attr'        => array('class' => 'form-control'),
             'constraints' => array(
                 new Assert\NotBlank(),
@@ -33,7 +33,7 @@ class SignupForm extends Form
         ))
         ->add('email', 'email', array(
             'required'    => true,
-            'label'       => 'form.signup.email',
+            'label'       => 'form.email',
             'attr'        => array('class' => 'form-control'),
             'constraints' => array(
                 new Assert\NotBlank(),
